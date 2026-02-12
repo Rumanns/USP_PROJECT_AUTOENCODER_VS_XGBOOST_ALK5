@@ -17,8 +17,6 @@ from tensorflow.keras.layers import Dropout
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.wrappers.scikit_learn import KerasRegressor
 
-print("OK ATÉ AQUI ---------------------------------------------------")
-
 monitor = tf.keras.callbacks.EarlyStopping(
     monitor='loss',
     patience=100,
@@ -31,18 +29,17 @@ monitor = tf.keras.callbacks.EarlyStopping(
 seed = 7
 np.random.seed(seed)
 
-path_y = "C:\\Users\\Rumanns\\Desktop\\_USP IA\\ALK5-ML\\data\y.csv"
+path_y = 'y.csv'
 y_df = pd.read_csv(path_y, index_col='ID')
 y = y_df['pIC50'].values
 
-path_x = "C:\\Users\\Rumanns\\Desktop\\_USP IA\ALK5-ML\\data\\intermediate_data\\rrelieff_descriptors.csv"
+path_x = 'rrelieff_descriptors.csv'
 x_df = pd.read_csv(path_x, index_col='ID')
 x = x_df.values
 
-path_r = "C:\\Users\\Rumanns\\Desktop\\_USP IA\\ALK5-ML\\data\\intermediate_data\\sbfs.csv"
+path_r = 'sbfs.csv'
 
 x = StandardScaler().fit_transform(x)
-
 
 def create_model():
 
@@ -60,7 +57,7 @@ def create_model():
     model.add(Dense(1, kernel_initializer='he_uniform', activation='linear'))
 
     model.compile(loss='mse', optimizer='adam')
-
+ 
     return model
 
 x, x_holdout, y, y_holdout = train_test_split(x, y, test_size=1/3)

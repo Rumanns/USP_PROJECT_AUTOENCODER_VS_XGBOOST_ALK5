@@ -4,7 +4,7 @@ from itertools import combinations
 from tqdm import tqdm
 from sklearn.metrics import r2_score
 
-x_df = pd.read_csv("C:\\Users\\Rumanns\\Desktop\\_USP IA\\ALK5-ML\\data\\intermediate_data\\calculated_descriptors.csv", index_col='ID')
+x_df = pd.read_csv('calculated_descriptors.csv', index_col='ID')
 
 pairs = list(combinations(x_df.columns, 2))
 
@@ -22,8 +22,4 @@ remove = list(dict.fromkeys(remove))
 
 x_df.drop(columns=remove, inplace=True)
 
-#x_df.to_csv('unique_descriptors.csv')
-
-x_df.to_csv("C:\\Users\\Rumanns\\Desktop\\_USP IA\\ALK5-ML\\data\\intermediate_data\\unique_descriptors.csv")
-
-
+x_df.to_csv('unique_descriptors.csv')

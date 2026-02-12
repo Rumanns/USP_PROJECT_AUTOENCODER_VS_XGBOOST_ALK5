@@ -66,19 +66,14 @@ class RReliefF:
             self.weights[a] = n_dcandda[a]/n_dc - ((n_da[a]-n_dcandda[a])/(m-n_dc))
 
 
-x = StandardScaler().fit_transform(pd.read_csv('C:\\Users\\Rumanns\\Desktop\\_USP IA\\ALK5-ML\\data\\intermediate_data\\unique_descriptors.csv', index_col='ID').values)
-y = pd.read_csv("C:\\Users\\Rumanns\\Desktop\\_USP IA\\ALK5-ML\\data\\y.csv", index_col='ID').values
+x = StandardScaler().fit_transform(pd.read_csv('unique_descriptors.csv', index_col='ID').values)
+y = pd.read_csv('y.csv', index_col='ID').values
 
 method = RReliefF()
 method.fit(x, y)
 
-data = dict(Descriptor=list(pd.read_csv('C:\\Users\\Rumanns\\Desktop\\_USP IA\\ALK5-ML\\data\\intermediate_data\\unique_descriptors.csv', index_col='ID').columns),
+data = dict(Descriptor=list(pd.read_csv('unique_descriptors.csv', index_col='ID').columns),
             Values=list(np.ravel(method.weights)))
 
 df = pd.DataFrame.from_dict(data)
-df.to_csv('C:\\Users\\Rumanns\\Desktop\\_USP IA\\ALK5-ML\\data\\intermediate_data\\rrelieff.csv', index=False)
-
-
-
-
-
+df.to_csv('rrelieff.csv', index=False)

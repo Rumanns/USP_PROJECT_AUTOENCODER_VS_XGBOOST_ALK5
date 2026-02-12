@@ -6,7 +6,7 @@ import numpy as np
 
 if __name__ == '__main__':
 
-    with open("C:\\Users\\Rumanns\\Desktop\\_USP IA\\ALK5-ML\\data\\intermediate_data\\smiles.smi") as file:
+    with open('smiles.smi') as file:
         smiles = file.read().splitlines()
 
     freeze_support()
@@ -17,7 +17,3 @@ if __name__ == '__main__':
     numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
     calculated_descriptors = calculated_descriptors.select_dtypes(include=numerics)
     calculated_descriptors.to_csv('all_descriptors.csv', index=False)
-    
-    
-    
-    
