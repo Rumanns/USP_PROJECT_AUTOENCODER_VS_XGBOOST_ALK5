@@ -1,0 +1,14 @@
+ACURÁCIA: A proporção de acertos no geral.
+
+PRECISÃO: Das vezes que o modelo disse que um composto era "Ativo", quantas ele acertou?
+
+RECALL: De todos os compostos que são realmente "Ativos", quantos o modelo conseguiu encontrar?
+
+F1 SCORE: A média harmônica entre Precisão e Recall. É um equilíbrio entre as duas.
+
+AUC-ROC: Mede a capacidade do modelo de distinguir entre as classes (Ativo vs Inativo) em diferentes limiares de corte.
+
+
+
+
+FAZER A FICHA CATALOGRÁFICA DO TCC!!!
